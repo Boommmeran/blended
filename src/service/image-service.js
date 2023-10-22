@@ -10,12 +10,11 @@ axios.defaults.params = {
 
 // "https://api.pexels.com/v1/search?query=nature&per_page=1"
 
-export const getImages = (query, page) => {
+export const getImages = async (query, page) => {
   try {
-    const { data } = axios.get(`search?query=${query}&page=${page}`);
+    const { data } = await axios.get(`search?query=${query}&page=${page}`);
     return data;
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
 };
-
